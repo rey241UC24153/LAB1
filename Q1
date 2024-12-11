@@ -1,0 +1,74 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+int main () {
+    int i, iInt;
+    char a, aChar;
+    long g;
+    float f;
+    double d, dDouble;
+
+    // assigning values
+    i = 65;
+    a = 'r';
+    g = 241;
+    f = 2.06;
+    d = 122.448;
+
+    cout << "The integer " << i << " converted to a character is: "
+         << static_cast<char>(i) << endl;
+    cout << "The character " << a << " converted to an int is "
+         << static_cast<int>(a) << endl;
+    cout << "The long int " << g << " converted to a character is "
+         << static_cast<char>(g) << endl;
+    cout << "The floating point value " << f << " converted to an int is "
+         << static_cast<int>(f) << endl;
+    cout << "The double " << d << " converted to a character is "
+         << static_cast<char>(d) << endl; 
+    cout << endl;
+
+    iInt= g + i;
+    aChar = i + a;
+    dDouble = d + g;
+
+    // implicit casting occurs here and difference in casting will be shpwn
+    cout << "The long int " << g << " + " << "integer " << i
+         << " converted to an int is "
+         << static_cast<int>(iInt) << endl
+         << static_cast<int>(g) + i << endl;
+
+
+    cout << "The long int " << g << " + " << "integer " << i
+         << " converted to a character is "
+         << static_cast<char>(iInt) << endl
+         //OR
+         << static_cast<char>(g) + i << endl; 
+         //They are different because abbove converts g into an int first
+         //Before carrying out the operation
+
+    cout << "The int " << i << " + " << "character " << a
+         << " converted to an int is "
+         << static_cast<int>(aChar) << endl 
+         <<  static_cast<char>(i) + a << endl; 
+    //------------------------------------------------------------------
+    cout << "The int " << i << " * " << "the character " << a
+         << " converted to an int is "
+         << static_cast<int>(i) * a << endl
+         << static_cast<int>(i*a) << endl;
+         /* ^ DIFFERENCE NOTE:
+         the implicit casting above != static_cast(i*a) because <-this will
+         PERFORM OPERATIION BEFORE CASTING
+         */
+
+    cout << "The double " << d << " / " << "the character " << a
+         << " converted to an int is "
+         << static_cast<int>(d) * a << endl;
+
+    cout << "The double " << d << " + " << "the long int " << g
+         << " converted to an int is "
+         << static_cast<int>(d) + g << endl
+         << static_cast<int>(dDouble) << endl;
+
+    return 0;
+}
